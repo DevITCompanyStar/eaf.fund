@@ -235,7 +235,9 @@ cython_debug/
 
 # Spyder project settings
 
-# Rope project settings
+# Project
+
+images/
 
 # mkdocs documentation
 
