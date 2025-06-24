@@ -11,5 +11,7 @@ class ReportImageInline(NestedStackedInline):
 
 @admin.register(Report)
 class ReportAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("title", "description", "event_date")
+    search_fields = ("title", "description")
+    list_filter = ("event_date",)
     inlines = [ReportImageInline]
