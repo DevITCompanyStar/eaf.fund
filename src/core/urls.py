@@ -31,5 +31,6 @@ urlpatterns = [
     path("api/", include("apps.reports.urls"), name="reports"),
     path("api/", include("apps.programs.urls"), name="programs"),
     path("api/", include("apps.contacts.urls"), name="contacts"),
+    path("api/", include("apps.payments.urls"), name="payments"),
     path("api/about/", include("apps.about.urls"), name="about"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
