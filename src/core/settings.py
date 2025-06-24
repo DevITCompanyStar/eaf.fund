@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     "rest_framework",
+    "drf_spectacular",
+    "nested_inline",
 
-    "apps.home",
+    "apps.about",
+    "apps.reports",
 ]
 
 MIDDLEWARE = [
@@ -119,3 +122,15 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "European Assistance Fund API",
+    "DESCRIPTION": "API for the European Assistance Fund — a Ukrainian charity founded in 2022 to support children and humanitarian projects",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+    "COMPONENT_SPLIT_REQUEST": True,
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
