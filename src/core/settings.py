@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
+    "modeltranslation",
     "phonenumber_field",
     "rest_framework",
     "drf_spectacular",
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
@@ -111,6 +112,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
+
+LANGUAGES = [
+    ("uk", "Українська"),
+    ("en", "English"),
+]
+
+LOCALE_PATHS = [BASE_DIR / "locale"]
 
 TIME_ZONE = "UTC"
 
