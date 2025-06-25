@@ -1,5 +1,7 @@
 from django.urls import path
 
-urlpatterns = [
+from .views import PaymentsOptionView
 
+urlpatterns = [
+    path("payments/options/", PaymentsOptionView.as_view(), name="payment_options")
 ]
