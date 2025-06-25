@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import PaymentOption
+
+
+@admin.register(PaymentOption)
+class PaymentMethodAdmin(admin.ModelAdmin):
+    list_display = ("title", "description", "currency", "details")
