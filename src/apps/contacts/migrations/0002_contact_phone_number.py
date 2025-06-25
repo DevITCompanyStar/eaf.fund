@@ -7,14 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contacts', '0001_initial'),
+        ("contacts", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='contact',
-            name='phone_number',
-            field=models.CharField(default=1, max_length=13, validators=[django.core.validators.RegexValidator(message="Phone number must be in the format: '+380XXXXXXXXX'.", regex='^\\+380\\d{9}$')]),
+            model_name="contact",
+            name="phone_number",
+            field=models.CharField(
+                default=1,
+                max_length=13,
+                validators=[
+                    django.core.validators.RegexValidator(
+                        message="Phone number must be in the format: '+380XXXXXXXXX'.",
+                        regex="^\\+380\\d{9}$",
+                    )
+                ],
+            ),
             preserve_default=False,
         ),
     ]

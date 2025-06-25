@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import RegexValidator
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Contact(models.Model):
@@ -13,15 +13,7 @@ class Contact(models.Model):
         null=True,
         help_text="The URL to the location from Google Maps",
     )
-    phone_number = models.CharField(
-        max_length=13,
-        validators=[
-            RegexValidator(
-                regex=r'^\+380\d{9}$',
-                message="Phone number must be in the format: '+380XXXXXXXXX'."
-            )
-        ]
-    )
+    phone_number = PhoneNumberField()
     email = models.EmailField()
     facebook = models.URLField(blank=True, null=True)
     twitter = models.URLField(blank=True, null=True)
@@ -40,15 +32,7 @@ class VolunteerApplication(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone_number = models.CharField(
-        max_length=13,
-        validators=[
-            RegexValidator(
-                regex=r'^\+380\d{9}$',
-                message="Phone number must be in the format: '+380XXXXXXXXX'."
-            )
-        ]
-    )
+    phone_number = PhoneNumberField()
     use_viber = models.BooleanField(default=False)
     use_whatsapp = models.BooleanField(default=False)
     use_telegram = models.BooleanField(default=False)
@@ -68,15 +52,7 @@ class VolunteerApplication(models.Model):
 class ContactMessage(models.Model):
     first_name = models.CharField(max_length=100)
     email = models.EmailField()
-    phone_number = models.CharField(
-        max_length=13,
-        validators=[
-            RegexValidator(
-                regex=r'^\+380\d{9}$',
-                message="Phone number must be in the format: '+380XXXXXXXXX'."
-            )
-        ]
-    )
+    phone_number = PhoneNumberField()
     message = models.TextField()
     contacted_at = models.DateTimeField(auto_now_add=True)
 

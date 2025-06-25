@@ -36,9 +36,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    "phonenumber_field",
     "rest_framework",
     "drf_spectacular",
     "nested_inline",
+    "ckeditor",
 
     "apps.about",
     "apps.reports",
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "uk"
+LANGUAGE_CODE = "en-us"
 
 TIME_ZONE = "UTC"
 

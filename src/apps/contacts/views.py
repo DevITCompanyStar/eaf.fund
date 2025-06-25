@@ -4,7 +4,7 @@ from .models import Contact, VolunteerApplication, ContactMessage
 from .serializers import (
     ContactSerializer,
     ContactMessageSerializer,
-    VolunteerApplicationSerializer
+    VolunteerApplicationSerializer,
 )
 
 

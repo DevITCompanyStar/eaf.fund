@@ -7,25 +7,39 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Contact',
+            name="Contact",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('location', models.CharField(blank=True, max_length=255, null=True)),
-                ('location_url', models.URLField(blank=True, help_text='The URL to the location from Google Maps', null=True)),
-                ('email', models.EmailField(blank=True, max_length=254, null=True)),
-                ('facebook', models.URLField(blank=True, null=True)),
-                ('twitter', models.URLField(blank=True, null=True)),
-                ('instagram', models.URLField(blank=True, null=True)),
-                ('youtube', models.URLField(blank=True, null=True)),
-                ('tiktok', models.URLField(blank=True, null=True)),
-                ('viber', models.URLField(blank=True, null=True)),
-                ('whatsapp', models.URLField(blank=True, null=True)),
-                ('telegram', models.URLField(blank=True, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("location", models.CharField(blank=True, max_length=255, null=True)),
+                (
+                    "location_url",
+                    models.URLField(
+                        blank=True,
+                        help_text="The URL to the location from Google Maps",
+                        null=True,
+                    ),
+                ),
+                ("email", models.EmailField(blank=True, max_length=254, null=True)),
+                ("facebook", models.URLField(blank=True, null=True)),
+                ("twitter", models.URLField(blank=True, null=True)),
+                ("instagram", models.URLField(blank=True, null=True)),
+                ("youtube", models.URLField(blank=True, null=True)),
+                ("tiktok", models.URLField(blank=True, null=True)),
+                ("viber", models.URLField(blank=True, null=True)),
+                ("whatsapp", models.URLField(blank=True, null=True)),
+                ("telegram", models.URLField(blank=True, null=True)),
             ],
         ),
     ]

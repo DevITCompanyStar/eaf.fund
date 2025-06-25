@@ -7,45 +7,83 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contacts', '0003_alter_contact_email'),
+        ("contacts", "0003_alter_contact_email"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ContactMessage',
+            name="ContactMessage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254)),
-                ('phone_number', models.CharField(max_length=13, validators=[django.core.validators.RegexValidator(message="Phone number must be in the format: '+380XXXXXXXXX'.", regex='^\\+380\\d{9}$')])),
-                ('message', models.TextField()),
-                ('contacted_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("email", models.EmailField(max_length=254)),
+                (
+                    "phone_number",
+                    models.CharField(
+                        max_length=13,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                message="Phone number must be in the format: '+380XXXXXXXXX'.",
+                                regex="^\\+380\\d{9}$",
+                            )
+                        ],
+                    ),
+                ),
+                ("message", models.TextField()),
+                ("contacted_at", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Contact Message',
-                'verbose_name_plural': 'Contact Messages',
-                'ordering': ['-contacted_at'],
+                "verbose_name": "Contact Message",
+                "verbose_name_plural": "Contact Messages",
+                "ordering": ["-contacted_at"],
             },
         ),
         migrations.CreateModel(
-            name='VolunteerApplication',
+            name="VolunteerApplication",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=100)),
-                ('last_name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254)),
-                ('phone_number', models.CharField(max_length=13, validators=[django.core.validators.RegexValidator(message="Phone number must be in the format: '+380XXXXXXXXX'.", regex='^\\+380\\d{9}$')])),
-                ('use_viber', models.BooleanField(default=False)),
-                ('use_whatsapp', models.BooleanField(default=False)),
-                ('use_telegram', models.BooleanField(default=False)),
-                ('no_social', models.BooleanField(default=False)),
-                ('social_link', models.URLField()),
-                ('submitted_at', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=100)),
+                ("last_name", models.CharField(max_length=100)),
+                ("email", models.EmailField(max_length=254)),
+                (
+                    "phone_number",
+                    models.CharField(
+                        max_length=13,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                message="Phone number must be in the format: '+380XXXXXXXXX'.",
+                                regex="^\\+380\\d{9}$",
+                            )
+                        ],
+                    ),
+                ),
+                ("use_viber", models.BooleanField(default=False)),
+                ("use_whatsapp", models.BooleanField(default=False)),
+                ("use_telegram", models.BooleanField(default=False)),
+                ("no_social", models.BooleanField(default=False)),
+                ("social_link", models.URLField()),
+                ("submitted_at", models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'verbose_name': 'Volunteer Application',
-                'verbose_name_plural': 'Volunteers Application',
-                'ordering': ['-submitted_at'],
+                "verbose_name": "Volunteer Application",
+                "verbose_name_plural": "Volunteers Application",
+                "ordering": ["-submitted_at"],
             },
         ),
     ]
