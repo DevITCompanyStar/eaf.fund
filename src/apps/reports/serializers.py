@@ -15,6 +15,7 @@ class ReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = Report
         fields = [
+            "id",
             "title",
             "description",
             "images",
