@@ -3,7 +3,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Member(models.Model):
-    image = models.ImageField(upload_to="images/members/", null=True, blank=True)
+    image = models.ImageField(upload_to="members/", null=True, blank=True)
     position = models.CharField(max_length=50)
     name = models.CharField(max_length=50)
     email = models.EmailField()
@@ -23,7 +23,7 @@ class Member(models.Model):
 
 class Award(models.Model):
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to="images/awards/")
+    image = models.ImageField(upload_to="awards/")
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

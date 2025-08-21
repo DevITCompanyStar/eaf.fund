@@ -21,16 +21,19 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView
 
-
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "api/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="api-docs"
     ),
-    path("api/", include("apps.reports.urls"), name="reports"),
-    path("api/", include("apps.programs.urls"), name="programs"),
-    path("api/", include("apps.contacts.urls"), name="contacts"),
-    path("api/", include("apps.payments.urls"), name="payments"),
-    path("api/about/", include("apps.about.urls"), name="about"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("api/", include("apps.reports.urls")),
+    path("api/", include("apps.programs.urls")),
+    path("api/", include("apps.contacts.urls")),
+    path("api/", include("apps.payments.urls")),
+    path("api/about/", include("apps.about.urls")),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

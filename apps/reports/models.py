@@ -21,7 +21,7 @@ class ReportImage(models.Model):
         on_delete=models.CASCADE,
         related_name="images"
     )
-    image = models.ImageField(upload_to="images/reports/")
+    image = models.ImageField(upload_to="reports/")
     title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 

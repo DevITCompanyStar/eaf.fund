@@ -82,7 +82,7 @@ class ProgramImage(models.Model):
         on_delete=models.CASCADE,
         related_name="images"
     )
-    image = models.ImageField(upload_to="images/programs/")
+    image = models.ImageField(upload_to="programs/")
     title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
