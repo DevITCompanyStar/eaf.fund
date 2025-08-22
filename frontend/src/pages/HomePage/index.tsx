@@ -107,7 +107,7 @@ const HomePage = () => {
         <div className="fund-help-buttons">
           <div className="fund-help-button-container">
             <div className="fund-help-button-container-img">
-              <img src="/help-img-1.png" alt="help-img-1" />
+              <img src={getImagePath(`/help-img-1.png`)} alt="help-img-1" />
             </div>
 
             <div className="fund-help-button-container-text">

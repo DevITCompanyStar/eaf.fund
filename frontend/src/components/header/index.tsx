@@ -1,6 +1,7 @@
 import { useLocation, Link } from 'react-router-dom';
 import './style.css';
 import CustomButton from '../customButton';
+import { getImagePath } from '../../utils/imagePath';
 
 const Header = () => {
     const { pathname } = useLocation();
@@ -9,7 +10,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-logo">
-        <img src={'/logo.svg'} alt="logo" />
+        <img src={getImagePath('/logo.svg')} alt="logo" />
       </div>
       <div className="header-menu">
         <ul>
