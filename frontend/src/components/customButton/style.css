@@ -1,0 +1,39 @@
+.custom-button {
+  font-family: 'Golos Text', sans-serif !important;
+  text-transform: none !important;
+
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  letter-spacing: -3.5% !important;
+
+  border-radius: 1000px !important;
+  transition: all 0.3s ease-in-out !important;
+
+  padding: 12px !important;
+
+  width: fit-content;
+
+  &.secondary {
+    background-color: #E7E7E7;
+    color: #2B384C;
+  }
+
+  &.primary {
+    background-color: #1C9BE9;
+    color: #FFFFFF;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+  }
+}
+
+.custom-button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-button:active {
+  transform: translateY(0);
+}
