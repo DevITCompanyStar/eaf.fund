@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import './style.css';
 import CustomButton from '../customButton';
 
@@ -13,12 +13,12 @@ const Header = () => {
       </div>
       <div className="header-menu">
         <ul>
-          <li><a href="/" className={pathname === '/' ? 'active' : ''}>Головна</a></li>
-          <li><a href="/about" className={pathname === '/about' ? 'active' : ''}>Про нас</a></li>
-          <li><a href="/reports" className={pathname === '/reports' ? 'active' : ''}>Звітнітсь</a></li>
-          <li><a href="/assistance" className={pathname === '/assistance' ? 'active' : ''}>Допомога від фонду</a></li>
-          <li><a href="/programs" className={pathname === '/programs' ? 'active' : ''}>Програми фонду</a></li>
-          <li><a href="/contacts" className={pathname === '/contacts' ? 'active' : ''}>Контакти</a></li>
+          <li><Link to="/" className={pathname === '/' ? 'active' : ''}>Головна</Link></li>
+          <li><Link to="/about" className={pathname === '/about' ? 'active' : ''}>Про нас</Link></li>
+          <li><Link to="/reports" className={pathname === '/reports' ? 'active' : ''}>Звітнітсь</Link></li>
+          <li><Link to="/assistance" className={pathname === '/assistance' ? 'active' : ''}>Допомога від фонду</Link></li>
+          <li><Link to="/programs" className={pathname === '/programs' ? 'active' : ''}>Програми фонду</Link></li>
+          <li><Link to="/contacts" className={pathname === '/contacts' ? 'active' : ''}>Контакти</Link></li>
         </ul>
       </div>
       <CustomButton variant="primary" hasArrow={true}>Підтримати нас</CustomButton>

@@ -1,5 +1,6 @@
 import CustomButton from '../../components/customButton';
 import InfiniteCarousel from '../../components/infiniteCarousel';
+import { getImagePath } from '../../utils/imagePath';
 import './style.css';
 
 
@@ -9,7 +10,7 @@ const HomePage = () => {
       {/* Європейський фонд допомоги */}
       <div className="fund-info">
         <div className="fund-info-img">
-          <img src="/eaf-img.png" alt="eaf-img" />
+          <img src={getImagePath('/eaf-img.png')} alt="eaf-img" />
         </div>
 
         <div className="fund-info-text">
@@ -28,7 +29,7 @@ const HomePage = () => {
       {/* Програми фонду */}
       <div className="fund-programs">
         <div className="fund-programs-title">
-          <div>Програми фонду</div>
+          <div className="secondary-text">Програми фонду</div>
           <h2>Поточні програми</h2>
         </div>
 
@@ -53,7 +54,7 @@ const HomePage = () => {
             </div>
 
             <div className="fund-programs-list-item-img">
-              <img src="/program-img-1.png" alt="program-img-1" />
+              <img src={getImagePath('/program-img-1.png')} alt="program-img-1" />
             </div>
           </div>
           ))}
@@ -65,7 +66,7 @@ const HomePage = () => {
         <div className="fund-mission-info">
           <div className="fund-mission-info-title">
             <div className="fund-mission-info-title-text">
-              <div>Про нас</div>
+              <div className="secondary-text">Про нас</div>
               <h2>Місія фонду</h2>
             </div>
 
@@ -88,21 +89,45 @@ const HomePage = () => {
         </div>
 
         <div className="fund-mission-img">
-          <img src="/mission-img.png" alt="mission-img" />
+          <img src={getImagePath('/mission-img.png')} alt="mission-img" />
+        </div>
+      </div>
+
+      {/* Допомога */}
+      <div className="fund-help">
+        <div className="fund-help-title">
+          <div className="secondary-text">Допомога</div>
+          <h2>Підтримайте нас</h2>
+          <div className="fund-help-title-description">
+            Нижче Ви можете побачити кнопки, натиснув на які зможете допомогти, тим хто цього потребує. Допомога важлива різна. Ви можете допомогти коштами, можете зробити репост, можете стати частиною нашої команди чи стати нашим партнером.
+          </div>
+          <CustomButton variant="secondary">+ Стати волонтером</CustomButton>
+        </div>
+
+        <div className="fund-help-buttons">
+          <div className="fund-help-button-container">
+            <div className="fund-help-button-container-img">
+              <img src="/help-img-1.png" alt="help-img-1" />
+            </div>
+
+            <div className="fund-help-button-container-text">
+              <div className="fund-help-button-container-text-title">Допомога коштами</div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Партнери */}
       <div className="fund-partners">
         <div className="fund-partners-title">
-          <div>Партнери</div>
+          <div className="secondary-text">Партнери</div>
           <h2>Партнери нашого фонду</h2>
         </div>
 
         <InfiniteCarousel speed={200} pauseOnHover={true} className="fund-partners-list-container" >
           {[1,2,3,4,5,6,7,8].map((index) => (
             <div className="fund-partners-list-item" key={index}>
-              <img src={`/partner-img-${index}.png`} alt={`partner-img-${index}`} />
+              <img src={getImagePath(`/partner-img-${index}.png`)} alt={`partner-img-${index}`} />
             </div>
           ))}
         </InfiniteCarousel>
