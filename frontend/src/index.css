@@ -29,6 +29,7 @@ body {
 }
 
 .App {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -37,4 +38,24 @@ body {
 
 div {
   box-sizing: border-box;
+}
+
+.secondary-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #7B7F8E;
+  letter-spacing: -3.5%;
+}
+
+h2 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 120%;
+  color: #2B384C;
+  letter-spacing: -3.5%;
 }

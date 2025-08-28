@@ -1,0 +1,130 @@
+.fund-help {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+
+  .fund-help-title {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    .fund-help-title-description {
+      width: 60%;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 120%;
+      color: #7B7F8E;
+      letter-spacing: -3.5%;
+    }
+
+    .fund-help-title-button {
+      background-color: #FFFFFF;
+      color: #2B384C;
+    }
+  }
+
+  .fund-help-buttons {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+
+    .fund-help-button-container {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+      padding: 20px;
+      padding-right: 32px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      .fund-help-button-container-img {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+        background-color: #E0EFFA;
+        color: #1C9BE9;
+        border-radius: 100%;
+        padding: 25px;
+        aspect-ratio: 1/1;
+        margin-right: 24px;
+        transition: all 0.3s ease-in-out;
+
+        svg {
+          path {
+            fill: #1C9BE9;
+          }
+        }
+      }
+
+      .fund-help-button-container-text {
+        display: flex;
+        width: 60%;
+        flex-direction: column;
+        gap: 8px;
+
+        .fund-help-button-container-text-title {
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 120%;
+          color: #2B384C;
+          letter-spacing: -3.5%;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .fund-help-button-container-text-description {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 125%;
+          color: #7B7F8E;
+          letter-spacing: -3.5%;
+        }
+      }
+
+      .fund-help-button-container-arrow {
+        display: flex;
+        width: fit-content;
+        height: fit-content;
+        aspect-ratio: 1/1;
+        align-items: center;
+        justify-content: center;
+        background-color: #F1F1F1;
+        border-radius: 100%;
+        padding: 16px;
+        aspect-ratio: 1/1;
+        margin-left: auto;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover {
+        .fund-help-button-container-img {
+          background-color: #1C9BE9;
+
+          svg {
+            path {
+              fill: #FFFFFF;
+            }
+          }
+        }
+
+        .fund-help-button-container-text {
+          .fund-help-button-container-text-title {
+            color: #1C9BE9;
+          }
+        }
+
+        .fund-help-button-container-arrow {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

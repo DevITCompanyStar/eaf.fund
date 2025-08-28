@@ -1,20 +1,3 @@
-.secondary-text {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 120%;
-  color: #7B7F8E;
-  letter-spacing: -3.5%;
-}
-
-h2 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 120%;
-  color: #2B384C;
-  letter-spacing: -3.5%;
-}
-
 .home-page {
   display: flex;
   flex-direction: column;
@@ -190,83 +173,6 @@ h2 {
     }
   }
 
-  .fund-mission {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    gap: 80px;
-    justify-content: space-between;
-    padding: 32px;
-
-    background-color: #1C9BE9;
-    border-radius: 24px;
-
-    .fund-mission-info {
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      background-color: #FFFFFF;
-      border-radius: 24px;
-      padding: 20px;
-
-      .fund-mission-info-title {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        justify-content: space-between;
-
-        .fund-mission-info-title-text {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-
-          div {
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 120%;
-            color: #7B7F8E;
-            letter-spacing: -3.5%;
-          }
-
-          h2 {
-            margin: 0;
-            font-size: 48px;
-            font-weight: 600;
-            line-height: 120%;
-            color: #2B384C;
-            letter-spacing: -3.5%;
-          }
-        }
-      }
-
-      .fund-mission-info-description {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 120%;
-        color: #2B384C;
-        letter-spacing: -3.5%;
-        gap: 20px;
-      }
-    }
-
-    .fund-mission-img {
-      display: flex;
-      width: calc(100% + 32px);
-      margin-bottom: -32px;
-      margin-right: -32px;
-
-      img {
-        width: 100%;
-        object-fit: contain;
-      }
-    }
-  }
-
-  
-
   .fund-partners {
     display: flex;
     width: 100%;
@@ -328,6 +234,95 @@ h2 {
           img {
             filter: grayscale(0%);
           }
+        }
+      }
+    }
+  }
+
+  .fund-thanks {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .fund-thanks-title {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .fund-thanks-list-container {
+      position: relative;
+      display: flex;
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      padding: 0 20px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 16px;
+      overflow: hidden;
+
+      .thanks-swiper {
+        position: static;
+        width: 100%;
+        height: 330px;
+
+        .fund-thanks-list-item {
+          display: flex;
+          position: relative;
+          height: 330px;
+          width: fit-content;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 24px;
+            background-color: rgba(43, 56, 76, 0);
+            transition: all 0.3s ease-in-out;
+          }
+
+          &:hover {
+            &::after {
+              background-color: rgba(43, 56, 76, 0.2);
+            }
+          }
+  
+          img {
+            border-radius: 24px;
+            height: 100%;
+            object-fit: fill;
+          }
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #2B384C;
+          background: rgba(255, 255, 255, 0.9);
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          
+          &::after {
+            font-size: 16px;
+          }
+        }
+
+        .swiper-button-next {
+          right: 0;
+          z-index: 100000;
+        }
+
+        .swiper-button-prev {
+          left: 0;
+          z-index: 100000;
         }
       }
     }

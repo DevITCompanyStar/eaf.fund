@@ -1,7 +1,7 @@
 import { useLocation, Link } from 'react-router-dom';
 import './style.css';
-import CustomButton from '../customButton';
-import { getImagePath } from '../../utils/imagePath';
+import CustomButton from '../../ui/customButton';
+import { getImagePath } from '../../../utils/imagePath';
 
 const Header = () => {
     const { pathname } = useLocation();

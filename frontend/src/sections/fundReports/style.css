@@ -1,0 +1,127 @@
+.fund-report {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .fund-report-title {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+
+    div {
+      cursor: pointer;
+    }
+  }
+
+  .fund-report-list-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+
+    .fund-report-list {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      gap: 16px;
+
+      .fund-report-list-item {
+        display: flex;
+        flex: 1 1 0;
+        position: relative;
+        height: 514px;
+        border-radius: 24px;
+        overflow: hidden;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 54%;
+          background: linear-gradient(180deg, rgba(43, 56, 76, 0) 0%, #2B384C 100%);
+          pointer-events: none;
+        }
+
+        .fund-report-list-additional {
+          position: absolute;
+          z-index: 10;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 0;
+          display: flex;
+          padding: 20px;
+          flex-direction: column;
+          transition: all 0.3s ease-in-out;
+
+          .fund-report-list-additional-title-text {
+            display: flex;
+            width: fit-content;
+            padding: 8px 12px;
+            background-color: #E7E7E7;
+            border-radius: 100px;
+
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+            color: #7B7F8E;
+            letter-spacing: -3.5%;
+          }
+
+          .fund-report-list-additional-title-info {
+            display: flex;
+            margin-top: auto;
+            flex-direction: column;
+            gap: 8px;
+
+            .fund-report-list-additional-title-info-date {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 6px;
+
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 120%;
+              color: #FFFFFF;
+              letter-spacing: -3.5%;
+
+              img {
+                width: unset;
+                height: unset;
+              }
+            }
+
+            .fund-report-list-additional-title-info-name {
+              font-size: 24px;
+              font-weight: 500;
+              line-height: 120%;
+              color: #FFFFFF;
+              letter-spacing: -3.5%;
+            }
+          }
+        }
+
+        &:hover {
+          .fund-report-list-additional {
+            background-color: rgba(43, 56, 76, 0.2);
+          }
+        }
+      }
+
+      .fund-report-list-item-1 {
+        flex: 2 1 0;
+      }
+    }
+  }
+}

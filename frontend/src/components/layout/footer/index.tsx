@@ -1,5 +1,5 @@
 import './style.css';
-import { getImagePath } from '../../utils/imagePath';
+import { getImagePath } from '../../../utils/imagePath';
 
 const Footer = () => {
     return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import type { ButtonProps } from '@mui/material';
 import './style.css';
-import { getImagePath } from '../../utils/imagePath';
+import { getImagePath } from '../../../utils/imagePath';
 
 interface CustomButtonProps extends Omit<ButtonProps, 'variant'> {
   variant?: 'primary' | 'secondary';

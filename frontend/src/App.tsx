@@ -5,9 +5,9 @@ import FundProgrammPage from './pages/FundProgrammPage';
 import FundAssistancePage from './pages/FundAssistancePage';
 import ReportPage from './pages/ReportPage';
 import ContactsPage from './pages/ContactsPage';
-import Header from './components/header';
+import Header from './components/layout/header';
 import './App.css';
-import Footer from './components/footer';
+import Footer from './components/layout/footer';
 
 function App() {
   return (

@@ -1,10 +1,21 @@
-import CustomButton from '../../components/customButton';
-import InfiniteCarousel from '../../components/infiniteCarousel';
+import CustomButton from '../../components/ui/customButton';
+import InfiniteCarousel from '../../components/ui/infiniteCarousel';
 import { getImagePath } from '../../utils/imagePath';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import './style.css';
+
+import FundMission from '../../sections/fundMission';
+import FundReports from '../../sections/fundReports';
+import FundHelp from '../../sections/fundHelp';
+import FundTeam from '../../sections/fundTeam';
 
 
 const HomePage = () => {
+  const thanksItems = [1, 2, 3, 4, 5, 6, 7, 8];
+
   return (
     <div className="home-page">
       {/* Європейський фонд допомоги */}
@@ -62,60 +73,40 @@ const HomePage = () => {
       </div>
 
       {/* Місія фонду */}
-      <div className="fund-mission">
-        <div className="fund-mission-info">
-          <div className="fund-mission-info-title">
-            <div className="fund-mission-info-title-text">
-              <div className="secondary-text">Про нас</div>
-              <h2>Місія фонду</h2>
-            </div>
-
-            <CustomButton variant="primary">Підтримати нас</CustomButton>
-          </div>
-
-          <div className="fund-mission-info-description">
-            <div>
-              Благодійна Організація «Європейський Фонд Допомоги» (БО “ЄФД”) – Charity Organization European Assistance Fund (CO “EAF”) було засновано 6 жовтня 2022 р. у місті Києві, Україна.
-            </div>
-
-            <div>
-              Наша команда молодих енергійних людей, яким не чуже почуття співчуття та чуйності.
-            </div>
-
-            <div>
-              Європейський Фонд Допомоги реалізує власні проекти та бере участь у реалізації програм інших благодійних фондів. І які так само розуміють що діти – це наше майбутнє!
-            </div>
-          </div>
-        </div>
-
-        <div className="fund-mission-img">
-          <img src={getImagePath('/mission-img.png')} alt="mission-img" />
-        </div>
-      </div>
+      <FundMission />
 
       {/* Допомога */}
-      <div className="fund-help">
-        <div className="fund-help-title">
-          <div className="secondary-text">Допомога</div>
-          <h2>Підтримайте нас</h2>
-          <div className="fund-help-title-description">
-            Нижче Ви можете побачити кнопки, натиснув на які зможете допомогти, тим хто цього потребує. Допомога важлива різна. Ви можете допомогти коштами, можете зробити репост, можете стати частиною нашої команди чи стати нашим партнером.
-          </div>
-          <CustomButton variant="secondary">+ Стати волонтером</CustomButton>
+      <FundHelp />  
+
+      {/* Наша звітність */}
+      <FundReports />
+
+      {/* Подяки фонду */}
+      <div className="fund-thanks">
+        <div className="fund-thanks-title">
+          <div className="secondary-text">Нагороди фонду та голови благодійної організації</div>
+          <h2>Подяки нашого фонду</h2>
         </div>
 
-        <div className="fund-help-buttons">
-          <div className="fund-help-button-container">
-            <div className="fund-help-button-container-img">
-              <img src={getImagePath(`/help-img-1.png`)} alt="help-img-1" />
-            </div>
-
-            <div className="fund-help-button-container-text">
-              <div className="fund-help-button-container-text-title">Допомога коштами</div>
-            </div>
-          </div>
+        <div className="fund-thanks-list-container">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={16}
+            slidesPerView="auto"
+            navigation
+            className="thanks-swiper"
+          >
+            {thanksItems.map((index) => (
+              <SwiperSlide key={index} className="fund-thanks-list-item">
+                <img src={getImagePath('/thanks-img.png')} alt={`thanks-img-${index}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
+
+      {/* Наша команда фонду */}
+      <FundTeam />
 
       {/* Партнери */}
       <div className="fund-partners">
