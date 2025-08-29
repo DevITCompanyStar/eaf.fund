@@ -59,3 +59,12 @@ h2 {
   color: #2B384C;
   letter-spacing: -3.5%;
 }
+
+h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 120%;
+  color: #2B384C;
+  letter-spacing: -3.5%;
+}

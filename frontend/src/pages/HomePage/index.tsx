@@ -1,21 +1,16 @@
 import CustomButton from '../../components/ui/customButton';
 import InfiniteCarousel from '../../components/ui/infiniteCarousel';
 import { getImagePath } from '../../utils/imagePath';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import './style.css';
 
 import FundMission from '../../sections/fundMission';
 import FundReports from '../../sections/fundReports';
 import FundHelp from '../../sections/fundHelp';
 import FundTeam from '../../sections/fundTeam';
+import FundThanks from '../../sections/fundThanks';
 
 
 const HomePage = () => {
-  const thanksItems = [1, 2, 3, 4, 5, 6, 7, 8];
-
   return (
     <div className="home-page">
       {/* Європейський фонд допомоги */}
@@ -82,28 +77,7 @@ const HomePage = () => {
       <FundReports />
 
       {/* Подяки фонду */}
-      <div className="fund-thanks">
-        <div className="fund-thanks-title">
-          <div className="secondary-text">Нагороди фонду та голови благодійної організації</div>
-          <h2>Подяки нашого фонду</h2>
-        </div>
-
-        <div className="fund-thanks-list-container">
-          <Swiper
-            modules={[Navigation, Pagination]}
-            spaceBetween={16}
-            slidesPerView="auto"
-            navigation
-            className="thanks-swiper"
-          >
-            {thanksItems.map((index) => (
-              <SwiperSlide key={index} className="fund-thanks-list-item">
-                <img src={getImagePath('/thanks-img.png')} alt={`thanks-img-${index}`} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
+      <FundThanks />
 
       {/* Наша команда фонду */}
       <FundTeam />

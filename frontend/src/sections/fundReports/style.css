@@ -5,12 +5,14 @@
 
   .fund-report-title {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 32px;
 
-    div {
-      cursor: pointer;
+    .fund-report-title-button {
+      background-color: #FFFFFF;
+      color: #2B384C;
     }
   }
 

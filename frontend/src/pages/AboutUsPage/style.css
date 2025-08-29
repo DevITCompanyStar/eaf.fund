@@ -24,7 +24,7 @@
         flex-direction: column;
         gap: 16px;
         margin-top: auto;
-        
+
         font-size: 20px;
         line-height: 120%;
         font-weight: 500;
@@ -76,6 +76,332 @@
       }
     }
   }
-} 
+
+  .fund-documents {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    padding: 20px;
+
+    .fund-documents-title {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .fund-documents-list {
+      display: flex;
+      width: 50%;
+      flex-direction: column;
+      gap: 4px;
+
+      .fund-documents-list-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+
+        background-color: #F1F1F1;
+        border-radius: 16px;
+        padding: 20px;
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: -3.5%;
+        color: #2B384C;
+        transition: all 0.3s ease;
+
+        cursor: pointer;
+
+        svg {
+          path {
+            fill: #2B384C;
+            transition: all 0.3s ease;
+          }
+        }
+
+        img {
+          margin-left: auto;
+        }
+
+        &:hover {
+          color: #1C9BE9;
+
+          svg {
+            path {
+              fill: #1C9BE9;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fund-contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    gap: 8px;
+
+    .fund-contacts-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      width: 50%;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+      padding: 20px;
+
+      .fund-contacts-info-description {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        height: fit-content;
+        gap: 4px;
+        margin-top: 24px;
+
+        .fund-contacts-info-description-title {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 120%;
+          letter-spacing: -3.5%;
+          color: #2B384C;
+        }
+
+        .fund-contacts-info-description-content {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 120%;
+          letter-spacing: -3.5%;
+          color: #7B7F8E;
+        }
+      }
+
+      .fund-contacts-info-contacts {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+        gap: 12px;
+        margin-top: auto;
+
+        .fund-contacts-info-contacts-item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          height: fit-content;
+          gap: 8px;
+
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 120%;
+          letter-spacing: -3.5%;
+          color: #1C9BE9;
+        }
+      }
+    }
+
+    .fund-contacts-form {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      width: 50%;
+      height: fit-content;
+      background-color: #FFFFFF;
+      border-radius: 24px;
+      padding: 20px;
+
+      .fund-contacts-form-title {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 120%;
+        letter-spacing: -3.5%;
+        color: #2B384C;
+        margin-bottom: 24px;
+      }
+
+      .fund-contacts-form-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: fit-content;
+
+        form {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: fit-content;
+          gap: 24px;
+
+          .form-group-row {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: fit-content;
+            gap: 24px;
+
+            .form-group {
+              display: flex;
+              flex: 1;
+              flex-direction: column;
+              height: fit-content;
+              gap: 8px;
+
+              label {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 125%;
+                letter-spacing: -3.5%;
+                color: #7B7F8E;
+              }
+
+              .MuiInputBase-root {
+                font-family: 'Golos Text', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+                background-color: #F1F1F1 !important;
+                border-radius: 10px !important;
+              }
+
+              fieldset {
+                font-family: 'Golos Text', system-ui, Avenir, Helvetica, Arial, sans-serif !important;
+                border-radius: 10px !important;
+                border: 1px solid transparent !important;
+              }
+
+              input {
+                width: calc(100% - 24px);
+                height: fit-content;
+                background-color: #F1F1F1;
+                border-radius: 10px;
+                padding: 12px;
+                color: #2B384C;
+                border: transparent;
+
+                &::placeholder {
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 125%;
+                  letter-spacing: -3.5%;
+                  color: #7B7F8E;
+                }
+              }
+
+              textarea {
+                color: #2B384C;
+
+                &::placeholder {
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 125%;
+                  letter-spacing: -3.5%;
+                  color: #7B7F8E;
+                }
+              }
+
+              .error {
+                fieldset {
+                  border: 1px solid #E24343 !important;
+                }
+
+                input, textarea {
+                  &::placeholder {
+                    color: #2B384C;
+                  }
+                }
+              }
+            }
+          }
+
+          .form-group-error {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 125%;
+            letter-spacing: -3.5%;
+            color: #E24343;
+          }
+
+          .form-group-submit {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            height: fit-content;
+            gap: 16px;
+
+            .submit-btn {
+              width: fit-content;
+              height: fit-content;
+              min-width: fit-content;
+            }
+
+            .form-group-submit-additional-info {
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 125%;
+              letter-spacing: -3.5%;
+              color: #7B7F8E;
+
+              span {
+                color: #1C9BE9;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fund-map {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+    margin-top: -72px;
+
+    .map-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+
+      .map {
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+
+        .leaflet-top.leaflet-left {
+          left: unset;
+          top: calc(50% - 52px - 2px);
+          right: 10px;
+
+          .leaflet-control-zoom {
+            border: none;
+            gap: 4px;
+
+            a {
+              display: flex;
+              width: 52px;
+              height: 52px;
+              border-radius: 100%;
+              background-color: #FFFFFF;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 /* 0,65 висота картинки від блока */

@@ -1,3 +1,4 @@
+import CustomButton from "../../components/ui/customButton";
 import { getImagePath } from "../../utils/imagePath";
 import './style.css';
 
@@ -6,10 +7,10 @@ const FundReports = () => {
     <div className="fund-report" >
       <div className="fund-report-title">
         <h2>Наша звітність</h2>
-        <div className="secondary-text">
+        <CustomButton variant="secondary" className="fund-report-title-button">
           Переглянути всі звіти
           <img src={getImagePath(`/icon-arrow-right-24x24.svg`)} alt="arrow-right-angle" />
-        </div>
+        </CustomButton>
       </div>
 
       <div className="fund-report-list-container">
