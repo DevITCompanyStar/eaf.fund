@@ -18,7 +18,7 @@ const Header = () => {
           <li><Link to="/about" className={pathname === '/about' ? 'active' : ''}>Про нас</Link></li>
           <li><Link to="/reports" className={pathname === '/reports' ? 'active' : ''}>Звітнітсь</Link></li>
           <li><Link to="/assistance" className={pathname === '/assistance' ? 'active' : ''}>Допомога від фонду</Link></li>
-          <li><Link to="/programs" className={pathname === '/programs' ? 'active' : ''}>Програми фонду</Link></li>
+          <li><Link to="/programs?id=1" className={pathname === '/programs' ? 'active' : ''}>Програми фонду</Link></li>
           <li><Link to="/contacts" className={pathname === '/contacts' ? 'active' : ''}>Контакти</Link></li>
         </ul>
       </div>

@@ -1,0 +1,86 @@
+.fund-programs {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  .fund-programs-title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fund-programs-list-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    /* Дочірні елементи займають половину ширини мінус gap */
+    >* {
+      flex: 0 0 calc(50% - 8px);
+      min-width: 0;
+    }
+
+    .fund-programs-list-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 32px;
+      gap: 24px;
+
+      background-color: #FFFFFF;
+      border-radius: 24px;
+
+      .fund-programs-list-item-info {
+        display: flex;
+        width: 60%;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .fund-programs-list-item-info-text-container {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+
+          .fund-programs-list-item-info-title {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 120%;
+            color: #2B384C;
+            letter-spacing: -3.5%;
+          }
+
+          .fund-programs-list-item-info-description {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 120%;
+            color: #7B7F8E;
+            letter-spacing: -3.5%;
+          }
+        }
+
+        .fund-programs-list-item-info-buttons {
+          display: flex;
+          flex-direction: row;
+          margin-top: 20px;
+          gap: 8px;
+        }
+      }
+
+      .fund-programs-list-item-img {
+        display: flex;
+        width: 40%;
+        margin-bottom: -32px;
+        margin-right: -32px;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}

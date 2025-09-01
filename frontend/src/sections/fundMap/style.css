@@ -1,0 +1,41 @@
+.fund-map {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  margin-top: -72px;
+
+  .map-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    .map {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+
+      .leaflet-top.leaflet-left {
+        left: unset;
+        top: calc(50% - 52px - 2px);
+        right: 10px;
+
+        .leaflet-control-zoom {
+          border: none;
+          gap: 4px;
+
+          a {
+            display: flex;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            background-color: #FFFFFF;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

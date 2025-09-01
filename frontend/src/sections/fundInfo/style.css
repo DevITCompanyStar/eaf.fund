@@ -1,0 +1,81 @@
+.fund-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 84px;
+  padding: 44px;
+
+  background-color: #FFFFFF;
+  border-radius: 24px;
+
+  .fund-info-img {
+    width: 100%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .fund-info-text {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+
+    .fund-info-text-title {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      gap: 24px;
+
+      h1 {
+        text-align: left;
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 100%;
+        color: #2B384C;
+        letter-spacing: -3.5%;
+        margin: 0;
+        width: 60%;
+      }
+
+      div {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 120%;
+        color: #7B7F8E;
+        letter-spacing: -3.5%;
+        width: 60%;
+      }
+    }
+
+    .fund-info-text-description {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 24px;
+      justify-content: space-between;
+
+      .fund-info-text-description-text {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 120%;
+        color: #2B384C;
+        letter-spacing: -3.5%;
+      }
+
+      .fund-info-text-description-text-strong {
+        margin: 0;
+        color: #1C9BE9;
+      }
+
+      button {
+        width: fit-content;
+      }
+    }
+  }
+}

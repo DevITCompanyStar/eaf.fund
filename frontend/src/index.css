@@ -51,6 +51,16 @@ div {
   letter-spacing: -3.5%;
 }
 
+h1 {
+  margin: 0;
+  font-size: 64px;
+  font-style: semiBold;
+  font-weight: 600;
+  line-height: 100%;
+  color: #2B384C;
+  letter-spacing: -3.5%;
+}
+
 h2 {
   margin: 0;
   font-size: 48px;
