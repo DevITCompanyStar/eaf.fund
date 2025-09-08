@@ -9,6 +9,7 @@ import ContactsPage from './pages/ContactsPage';
 import PaymentPage from './pages/PaymentPage';
 import PublicOffer from './pages/PublicOffer';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import ReportDetails from './pages/ReportDetails';
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/public-offer" element={<PublicOffer />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/report-details/:id" element={<ReportDetails />} />
         </Routes>
 
         <Footer />

@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { getImagePath } from '../../utils/imagePath';
 import './style.css';
 import CustomButton from '../../components/ui/customButton';
+import { useNavigate } from 'react-router-dom';
 
 const ReportPage = () => {
   const [currentReport, setCurrentReport] = useState<"all" | "new" | "events" | "announcement">('all');
+  const navigate = useNavigate();
   
   return (
     <div className="report-page">
@@ -65,7 +67,7 @@ const ReportPage = () => {
         {[1,2,3,4,5].map((_, indexRow) => (
           <div className={`report-page-content-row report-page-content-row-${indexRow}`}>
             {[1, 2, 3].map((_, indexItem) => (
-              <div className={`report-page-content-row-item report-page-content-row-item-${indexItem}`}>
+              <div className={`report-page-content-row-item report-page-content-row-item-${indexItem}`} onClick={() => navigate(`/report-details/${indexItem}`)}>
                 <div className="report-page-content-row-item-image">
                   <img src={getImagePath('report-img.png')} alt="report-image" />
                 </div>

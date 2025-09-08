@@ -3,14 +3,18 @@ import CustomButton from "../../components/ui/customButton";
 import { getImagePath } from "../../utils/imagePath";
 import './style.css';
 
-const FundReports = () => {
+interface FundReportsProps {
+  isOthers?: boolean;
+}
+
+const FundReports = ({ isOthers = false }: FundReportsProps) => {
   const navigate = useNavigate();
   return (
     <div className="fund-report" >
       <div className="fund-report-title">
-        <h2>Наша звітність</h2>
+        <h2>{isOthers ? 'Інші звіти' : 'Наша звітність'}</h2>
         <CustomButton variant="secondary" className="fund-report-title-button" onClick={() => navigate('/reports')}>
-          Переглянути всі звіти
+          {isOthers ? 'Переглянути інші звіти' : 'Переглянути всі звіти'}
           <img src={getImagePath(`/icon-arrow-right-24x24.svg`)} alt="arrow-right-angle" />
         </CustomButton>
       </div>
