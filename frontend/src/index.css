@@ -40,11 +40,16 @@ div {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: #2B384C;
+}
+
 .secondary-text {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 20px;
+  font-size: clamp(10px, 1.042vw, 20px);
   font-weight: 500;
   line-height: 120%;
   color: #7B7F8E;
@@ -53,7 +58,7 @@ div {
 
 h1 {
   margin: 0;
-  font-size: 64px;
+  font-size: clamp(32px, 3.333vw, 64px);
   font-style: semiBold;
   font-weight: 600;
   line-height: 100%;
@@ -63,7 +68,7 @@ h1 {
 
 h2 {
   margin: 0;
-  font-size: 48px;
+  font-size: clamp(24px, 2.5vw, 48px);
   font-weight: 600;
   line-height: 120%;
   color: #2B384C;
@@ -72,9 +77,35 @@ h2 {
 
 h3 {
   margin: 0;
-  font-size: 32px;
+  font-size: clamp(16px, 1.667vw, 32px);
   font-weight: 600;
   line-height: 120%;
+  color: #2B384C;
+  letter-spacing: -3.5%;
+}
+
+h4 {
+  margin: 0;
+  font-size: clamp(12px, 1.25vw, 24px);
+  font-weight: 500;
+  line-height: 120%;
+  color: #2B384C;
+  letter-spacing: -3.5%;
+}
+
+h5 {
+  margin: 0;
+  font-size: clamp(10px, 1.042vw, 20px);
+  font-weight: 500;
+  line-height: 120%;
+  color: #2B384C;
+  letter-spacing: -3.5%;
+}
+
+.text-m {
+  font-size: clamp(10px, 1.042vw, 16px);
+  font-weight: 400;
+  line-height: 125%;
   color: #2B384C;
   letter-spacing: -3.5%;
 }

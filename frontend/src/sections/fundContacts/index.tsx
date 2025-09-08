@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { getImagePath } from "../../utils/imagePath";
-import { TextField } from "@mui/material";
+import { Modal, TextField } from "@mui/material";
 import CustomButton from "../../components/ui/customButton";
 
 import './style.css';
 
 const FundContacts = () => {
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const validateForm = (target: HTMLFormElement) => {
     // const name = target.name;
@@ -28,9 +30,14 @@ const FundContacts = () => {
     e.preventDefault();
 
     if (validateForm(e.target as HTMLFormElement)) {
-      console.log('Форма відправлена');
+      setIsModalOpen(true);
     }
   };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
 
   const handleInvalid = (e: React.FormEvent<HTMLFormElement>) => {
     validateForm(e.target as HTMLFormElement);
@@ -58,13 +65,13 @@ const FundContacts = () => {
         </div>
 
         <div className="fund-contacts-info-contacts">
-          <div className="fund-contacts-info-contacts-item">
-            <img src={getImagePath('/icon-phone.svg')} alt="icon-phone" />
+          <div className="fund-contacts-info-contacts-item" onClick={() => window.open('tel:+380443002813', '_blank')}>
+            <img src={getImagePath('/icon-phone-blue.svg')} alt="icon-phone" />
             +380-044-300-2813
           </div>
 
-          <div className="fund-contacts-info-contacts-item">
-            <img src={getImagePath('/icon-email.svg')} alt="icon-email" />
+          <div className="fund-contacts-info-contacts-item" onClick={() => window.open('mailto:help@eaf.fund', '_blank')}>
+            <img src={getImagePath('/icon-email-blue.svg')} alt="icon-email" />
             help@eaf.fund
           </div>
         </div>
@@ -154,6 +161,26 @@ const FundContacts = () => {
           </form>
         </div>
       </div>
+
+      <Modal
+        open={isModalOpen}
+        onClose={handleCloseModal}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+      >
+        <div className="fund-contacts-modal">
+          <h4>Дякуємо!</h4>
+          <h4>Ми отримали ваше запитання</h4>
+
+          <div className="fund-contacts-modal-description">
+            Наші менеджери зв'яжуться з вами найближчим часом
+          </div>
+
+          <CustomButton variant="secondary" onClick={handleCloseModal} className="fund-contacts-modal-close-btn">
+            Закрити
+          </CustomButton>
+        </div>
+      </Modal>
     </div>
   );
 };

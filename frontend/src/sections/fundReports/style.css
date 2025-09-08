@@ -41,6 +41,7 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
+          transition: all 0.3s ease-in-out;
         }
 
         &::after {
@@ -73,7 +74,7 @@
             background-color: #E7E7E7;
             border-radius: 100px;
 
-            font-size: 14px;
+            font-size: clamp(7px, 0.729vw, 14px);
             font-weight: 500;
             line-height: 16px;
             color: #7B7F8E;
@@ -92,7 +93,7 @@
               align-items: center;
               gap: 6px;
 
-              font-size: 14px;
+              font-size: clamp(7px, 0.729vw, 14px);
               font-weight: 400;
               line-height: 120%;
               color: #FFFFFF;
@@ -105,7 +106,7 @@
             }
 
             .fund-report-list-additional-title-info-name {
-              font-size: 24px;
+              font-size: clamp(12px, 1.25vw, 24px);
               font-weight: 500;
               line-height: 120%;
               color: #FFFFFF;
@@ -116,7 +117,11 @@
 
         &:hover {
           .fund-report-list-additional {
-            background-color: rgba(43, 56, 76, 0.2);
+            background-color: rgba(43, 56, 76, 0.1);
+          }
+
+          img {
+            transform: scale(1.05);
           }
         }
       }

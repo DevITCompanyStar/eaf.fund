@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/ui/customButton";
 import { getImagePath } from "../../utils/imagePath";
 import './style.css';
 
 const FundInfo = ({ isHomePage }: { isHomePage: boolean }) => {
+  const navigate = useNavigate();
   return (
     <div className="fund-info">
       <div className="fund-info-img">
@@ -17,7 +19,7 @@ const FundInfo = ({ isHomePage }: { isHomePage: boolean }) => {
 
         <div className="fund-info-text-description">
           <div className="fund-info-text-description-text">Наша мета об'єднати ресурси активних небайдужих людей для <span className="fund-info-text-description-text-strong">вирішення соціальних проблем</span> що потребують допомоги. Приєднуйся до нас!</div>
-          <CustomButton variant="primary" hasArrow={true}>Підтримати нас</CustomButton>
+          <CustomButton variant="primary" hasArrow={true} onClick={() => navigate('/payment')}>Підтримати нас</CustomButton>
         </div>
       </div>
     </div>

@@ -34,7 +34,7 @@
 
       h1 {
         text-align: left;
-        font-size: 64px;
+        font-size: clamp(32px, 3.333vw, 64px);
         font-weight: 600;
         line-height: 100%;
         color: #2B384C;
@@ -44,7 +44,7 @@
       }
 
       div {
-        font-size: 20px;
+        font-size: clamp(10px, 1.042vw, 20px);
         font-weight: 500;
         line-height: 120%;
         color: #7B7F8E;
@@ -61,7 +61,7 @@
       justify-content: space-between;
 
       .fund-info-text-description-text {
-        font-size: 32px;
+        font-size: clamp(16px, 1.667vw, 32px);
         font-weight: 600;
         line-height: 120%;
         color: #2B384C;

@@ -1,5 +1,7 @@
 import { getImagePath } from "../../utils/imagePath";
 import './style.css';
+import { teamData } from '../../data';
+import type { TeamMember } from '../../data';
 
 const FundTeam = () => {
   return (
@@ -10,14 +12,33 @@ const FundTeam = () => {
       </div>
 
       <div className="fund-team-list-container">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((index) => (
-          <div className="fund-team-list-item" key={index}>
-            <img src={getImagePath(`/team-img.png`)} alt={`team-img-${index}`} />
+        {teamData.map((member: TeamMember) => (
+          <div className="fund-team-list-item" key={member.id}>
+            <img src={getImagePath(`${member.image}`)} alt={`${member.image}`} className="fund-team-list-item-img"/>
             <div className="fund-team-list-item-pos">
-              Волонтер
+              {member.position}
             </div>
             <div className="fund-team-list-item-name">
-              Іван Іванов
+              {member.name}
+            </div>
+            <div className="fund-team-list-item-socials-container">
+              <div className="fund-team-list-item-socials">
+                <a href={`${member.phone}`} target="_blank" rel="noopener noreferrer">
+                  <img src={getImagePath(`/icon-member-phone.svg`)} alt="instagram" />
+                </a>
+              </div>
+
+              <div className="fund-team-list-item-socials">
+                <a href={`${/*member.email*/'mailto:help@eaf.fund'}`} target="_blank" rel="noopener noreferrer">
+                  <img src={getImagePath(`/icon-member-mail.svg`)} alt="instagram" />
+                </a>
+              </div>
+
+              <div className="fund-team-list-item-socials">
+                <a href={`${member.instagram}`} target="_blank" rel="noopener noreferrer">
+                  <img src={getImagePath(`/icon-member-instagram.svg`)} alt="instagram" className="fund-team-list-item-socials-icon"/>
+                </a>
+              </div>
             </div>
           </div>
         ))}

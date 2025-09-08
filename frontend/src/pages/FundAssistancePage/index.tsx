@@ -84,7 +84,7 @@ const FundAssistancePage = () => {
           </div>
 
           <div className="fund-help-from-fund-examples-text-document" onClick={() => {
-            downloadPDF('statut-eaf-fund.pdf', '/eaf.fund/documents/statut-eaf-fund.pdf');
+            downloadPDF('Бланк заяви на допомогу.pdf', '/eaf.fund/documents/Бланк заяви на допомогу.pdf');
           }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M20 8V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2H14C14.2652 2 14.5196 2.10536 14.7071 2.29289L19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8ZM12 4H6V20H18V10H13C12.4477 10 12 9.55228 12 9V4ZM14 4.41421V8H17.5858L14 4.41421Z" fill="#2B384C" />
@@ -94,7 +94,7 @@ const FundAssistancePage = () => {
           </div>
 
           <div className="fund-help-from-fund-examples-text-document" onClick={() => {
-            downloadPDF('statut-eaf-fund.pdf', '/eaf.fund/documents/statut-eaf-fund.pdf');
+            downloadPDF('Бланк заяви для установ.pdf', '/eaf.fund/documents/Бланк заяви для установ.pdf');
           }}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M20 8V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V3C4 2.44772 4.44772 2 5 2H14C14.2652 2 14.5196 2.10536 14.7071 2.29289L19.7071 7.29289C19.8946 7.48043 20 7.73478 20 8ZM12 4H6V20H18V10H13C12.4477 10 12 9.55228 12 9V4ZM14 4.41421V8H17.5858L14 4.41421Z" fill="#2B384C" />
@@ -110,10 +110,14 @@ const FundAssistancePage = () => {
           </div>
 
           <div className="fund-help-from-fund-examples-photos-list">
-            <div className="fund-help-from-fund-examples-photos-list-item">
+            <div className="fund-help-from-fund-examples-photos-list-item" onClick={() => {
+              downloadPDF('Приклад заповлнення заяви.pdf', '/eaf.fund/documents/Приклад заповлнення заяви.pdf');
+            }}>
               <img src={getImagePath('/fund-help-from-fund-examples-1.png')} alt="fund-help-from-fund-examples-photos-list-item-1" />
             </div>
-            <div className="fund-help-from-fund-examples-photos-list-item">
+            <div className="fund-help-from-fund-examples-photos-list-item" onClick={() => {
+              downloadPDF('Приклад заповнення заяви для установи.pdf', '/eaf.fund/documents/Приклад заповнення заяви для установи.pdf');
+            }}>
               <img src={getImagePath('/fund-help-from-fund-examples-2.png')} alt="fund-help-from-fund-examples-photos-list-item-2" />
             </div>
           </div>

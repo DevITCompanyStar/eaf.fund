@@ -25,7 +25,7 @@
         gap: 16px;
         margin-top: auto;
 
-        font-size: 20px;
+        font-size: clamp(10px, 1.042vw, 20px);
         line-height: 120%;
         font-weight: 500;
         letter-spacing: -3.5%;
@@ -59,7 +59,7 @@
 
           font-weight: 500;
           font-style: Medium;
-          font-size: 24px;
+          font-size: clamp(12px, 1.25vw, 24px);
           line-height: 120%;
           letter-spacing: -3.5%;
 
@@ -111,7 +111,7 @@
         border-radius: 16px;
         padding: 20px;
 
-        font-size: 20px;
+        font-size: clamp(10px, 1.042vw, 20px);
         font-weight: 500;
         line-height: 120%;
         letter-spacing: -3.5%;

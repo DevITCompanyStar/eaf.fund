@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../../components/ui/customButton"
 import { getImagePath } from "../../utils/imagePath"
 import './style.css';
 
 const FundMission = () => {
+    const navigate = useNavigate();
     return (
         <div className="fund-mission">
             <div className="fund-mission-info">
@@ -12,7 +14,7 @@ const FundMission = () => {
                         <h2>Місія фонду</h2>
                     </div>
 
-                    <CustomButton variant="primary">Підтримати нас</CustomButton>
+                    <CustomButton variant="primary" onClick={() => navigate('/payment')}>Підтримати нас</CustomButton>
                 </div>
 
                 <div className="fund-mission-info-description">
