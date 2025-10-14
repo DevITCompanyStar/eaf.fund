@@ -22,10 +22,24 @@ class ReportImage(models.Model):
         related_name="images"
     )
     image = models.ImageField(upload_to="reports/")
-    title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["created_at"]
         verbose_name = "Image"
         verbose_name_plural = "Images"
+
+
+class ReportVideo(models.Model):
+    report = models.ForeignKey(
+        Report,
+        on_delete=models.CASCADE,
+        related_name="videos"
+    )
+    video = models.URLField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["created_at"]
+        verbose_name = "Video"
+        verbose_name_plural = "Videos"
