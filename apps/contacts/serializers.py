@@ -30,25 +30,8 @@ class VolunteerApplicationSerializer(serializers.ModelSerializer):
             "last_name",
             "email",
             "phone_number",
-            "use_viber",
-            "use_whatsapp",
-            "use_telegram",
-            "no_social",
             "social_link",
         ]
-
-    def validate(self, attrs):
-        use_viber = attrs.get("use_viber")
-        use_whatsapp = attrs.get("use_whatsapp")
-        use_telegram = attrs.get("use_telegram")
-        no_social = attrs.get("no_social")
-
-        if no_social and (use_viber or use_whatsapp or use_telegram):
-            raise serializers.ValidationError(
-                "If 'No social networks for communication' is selected, other social network options must not be selected."
-            )
-
-        return attrs
 
 
 class ContactMessageSerializer(serializers.ModelSerializer):

@@ -33,10 +33,6 @@ class VolunteerApplication(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
     phone_number = PhoneNumberField()
-    use_viber = models.BooleanField(default=False)
-    use_whatsapp = models.BooleanField(default=False)
-    use_telegram = models.BooleanField(default=False)
-    no_social = models.BooleanField(default=False)
     social_link = models.URLField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
