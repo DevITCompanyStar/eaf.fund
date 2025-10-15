@@ -1,6 +1,11 @@
 from rest_framework import serializers
 
-from .models import Contact, VolunteerApplication, ContactMessage
+from .models import (
+    Contact,
+    VolunteerApplication,
+    ContactMessage,
+    PartnershipApplication
+)
 
 
 class ContactSerializer(serializers.ModelSerializer):
@@ -30,7 +35,7 @@ class VolunteerApplicationSerializer(serializers.ModelSerializer):
             "last_name",
             "email",
             "phone_number",
-            "social_link",
+            "social_links",
         ]
 
 
@@ -42,4 +47,17 @@ class ContactMessageSerializer(serializers.ModelSerializer):
             "email",
             "phone_number",
             "message",
+        ]
+
+
+class PartnershipApplicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PartnershipApplication
+        fields = [
+            "name",
+            "company_name",
+            "email",
+            "phone_number",
+            "social_links",
+            "company_info"
         ]
