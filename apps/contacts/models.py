@@ -33,13 +33,13 @@ class VolunteerApplication(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField()
     phone_number = PhoneNumberField()
-    social_link = models.URLField()
+    social_links = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-submitted_at"]
         verbose_name = "Volunteer Application"
-        verbose_name_plural = "Volunteers Application"
+        verbose_name_plural = "Volunteer Applications"
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -59,3 +59,21 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.first_name}"
+
+
+class PartnershipApplication(models.Model):
+    name = models.CharField(max_length=255)
+    company_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone_number = PhoneNumberField()
+    social_links = models.TextField()
+    company_info = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-submitted_at"]
+        verbose_name = "Partnership Application"
+        verbose_name_plural = "Partnership Applications"
+
+    def __str__(self):
+        return f"Partnership Application from {self.company_name}"
