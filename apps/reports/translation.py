@@ -4,4 +4,4 @@ from .models import Report
 
 @register(Report)
 class ReportTranslationOptions(TranslationOptions):
-    fields = ("title", "description")
+    fields = ("title", "short_description", "description1", "description2")

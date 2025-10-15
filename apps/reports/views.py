@@ -11,6 +11,10 @@ class ReportListView(generics.ListAPIView):
     pagination_class = LimitOffsetPagination
 
     def list(self, request, *args, **kwargs):
+        category = request.query_params.get("category")
+        if category:
+            self.queryset = self.queryset.filter(category__icontains=category)
+
         paginator = self.pagination_class()
         paginator.default_limit = self.request.query_params.get("limit", 10)
         result = paginator.paginate_queryset(self.get_queryset(), request)

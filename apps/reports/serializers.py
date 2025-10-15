@@ -24,7 +24,11 @@ class ReportSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "title",
-            "description",
+            "preview_image",
+            "short_description",
+            "description1",
+            "description2",
+            "description_image",
             "images",
             "videos",
             "event_date"

@@ -1,9 +1,20 @@
 from django.db import models
 
+ReportCategory = (
+    ("News", "News"),
+    ("Events", "Events"),
+    ("Announcement", "Announcement"),
+)
+
 
 class Report(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    preview_image = models.ImageField(upload_to="reports/")
+    category = models.CharField(max_length=100, choices=ReportCategory)
+    short_description = models.TextField()
+    description1 = models.TextField()
+    description2 = models.TextField(null=True, blank=True, help_text="Unrequired")
+    description_image = models.ImageField(upload_to="reports/", null=True, blank=True, help_text="Unrequired")
     event_date = models.DateField()
 
     class Meta:
