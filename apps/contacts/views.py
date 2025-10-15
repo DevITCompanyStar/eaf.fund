@@ -1,10 +1,16 @@
 from rest_framework import generics
 
-from .models import Contact, VolunteerApplication, ContactMessage
+from .models import (
+    Contact,
+    VolunteerApplication,
+    ContactMessage,
+    PartnershipApplication
+)
 from .serializers import (
     ContactSerializer,
     ContactMessageSerializer,
     VolunteerApplicationSerializer,
+    PartnershipApplicationSerializer
 )
 
 
@@ -21,3 +27,8 @@ class VolunteerApplicationCreateView(generics.CreateAPIView):
 class ContactMessageCreateView(generics.CreateAPIView):
     queryset = ContactMessage.objects.all()
     serializer_class = ContactMessageSerializer
+
+
+class PartnershipApplicationCreateView(generics.CreateAPIView):
+    queryset = PartnershipApplication.objects.all()
+    serializer_class = PartnershipApplicationSerializer
