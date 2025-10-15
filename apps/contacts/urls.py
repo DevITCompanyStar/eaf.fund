@@ -2,8 +2,9 @@ from django.urls import path
 
 from .views import (
     ContactListView,
-    VolunteerApplicationCreateView,
     ContactMessageCreateView,
+    VolunteerApplicationCreateView,
+    PartnershipApplicationCreateView
 )
 
 urlpatterns = [
@@ -17,5 +18,10 @@ urlpatterns = [
         "contacts/contact-messages/",
         ContactMessageCreateView.as_view(),
         name="contact-message-create",
+    ),
+    path(
+        "contacts/partnership-applications/",
+        PartnershipApplicationCreateView.as_view(),
+        name="partnership-application-create"
     ),
 ]
