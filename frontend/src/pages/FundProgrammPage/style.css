@@ -83,7 +83,7 @@
 
       .fund-programm-page-others-programms-item {
         display: flex;
-        height: 375px;
+        min-height: 375px;
         flex: 1;
         flex-direction: row;
         gap: 32px;
@@ -98,6 +98,10 @@
           flex-direction: column;
           
           h4 {
+            margin-bottom: 16px;
+          }
+
+          .text-m {
             margin-bottom: 16px;
           }
           

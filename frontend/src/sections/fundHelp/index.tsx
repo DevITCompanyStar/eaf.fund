@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import './style.css';
+import axios from "axios";
 
 const FundHelp = () => {
   const navigate = useNavigate();
@@ -15,11 +16,6 @@ const FundHelp = () => {
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
 
   const validateForm = (target: HTMLFormElement) => {
-    // const name = target.name;
-    // const email = target.email;
-    // const phone = target.phone;
-    // const message = target.message;
-
     const newErrors: { [key: string]: boolean } = { ...errors };
 
     if (target.name === 'name') newErrors.name = true;
@@ -30,15 +26,94 @@ const FundHelp = () => {
     if (target.name === 'website') newErrors.website = true;
     if (target.name === 'info') newErrors.info = true;
 
+    const formData = new FormData(target as HTMLFormElement);
+    const name = formData.get('name') as string;
+    console.log(name)
+    if (name !== null && name.length < 1) newErrors.name = true;
+
+    const email = formData.get('email') as string;
+    if (email !== null && email.length < 3 && !email.includes('@')) newErrors.email = true;
+
+    const message = formData.get('message') as string;
+    if (message !== null && message.length < 1) newErrors.message = true;
+
+    const company = formData.get('company') as string;
+    if (company !== null && company.length < 1) newErrors.company = true;
+
+    const website = formData.get('website') as string;
+    if (website !== null && website.length < 3 && !website.includes('http')) newErrors.website = true;
+
+    const info = formData.get('info') as string;
+    if (info !== null && info.length < 1) newErrors.info = true;
+
+    const surname = formData.get('surname') as string;
+    if (surname !== null && surname.length < 1) newErrors.surname = true;
+
+    const socialMedia = formData.get('socialMedia') as string;
+    if (socialMedia !== null && socialMedia.length < 1) {
+      newErrors.socialMedia = true;
+    }
+
+    const phone = formData.get('phone') as string;
+    if ((phone.includes('+') && phone.length !== 13) || (!phone.includes('+') && (phone.length !== 12 && phone.length !== 10)))
+      newErrors.phone = true;
+
     setErrors(newErrors);
+    console.log('newErrors', newErrors)
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Вимкнути стандартну браузерну валідацію
+    e.stopPropagation();
 
     if (validateForm(e.target as HTMLFormElement)) {
-      // setIsModalOpen(true);
+      const formData = new FormData(e.target as HTMLFormElement);
+
+      if (openVolunteerModal) {
+      axios.post('http://185.209.20.190:8006/api/contacts/volunteer-applications/', {
+        "first_name": formData.get('name'),
+        "last_name": formData.get('surname'),
+        "email": formData.get('email'),
+        "phone_number": formData.get('phone'),
+        "social_link": formData.get('socialMedia')
+      }).then((response) => {
+        console.log('response', response);
+        setOpenVolunteerModal(false);
+        setOpenInfoModal(false);
+        setOpenPartnerModal(false);
+      }).catch((error) => {
+        console.log('error', Object.keys(error.response.data), error.response.data);
+        for (const key of Object.keys(error.response.data)) {
+          setErrors({
+            [key]: true
+          });
+        }
+      });
+      } else if (openPartnerModal) {
+        axios.post('http://185.209.20.190:8006/api/contacts/partnership-applications/', {
+          "email": formData.get('email'),
+          "phone_number": formData.get('phone'),
+          "name": formData.get('name'),
+          "company_name": formData.get('company'),
+          "social_links": formData.get('website'),
+          "company_info": formData.get('info')
+        }).then((response) => {
+          console.log('response', response);
+          setOpenVolunteerModal(false);
+          setOpenInfoModal(false);
+          setOpenPartnerModal(false);
+        }).catch((error) => {
+          console.log('error', Object.keys(error.response.data), error.response.data);
+          for (const key of Object.keys(error.response.data)) {
+            setErrors({
+              [key]: true
+            });
+          }
+        });
+      }
     }
   };
 
@@ -170,8 +245,8 @@ const FundHelp = () => {
             <h2>Форма партнерства та співробітництва</h2>
             <form
               onSubmit={(e) => { handleSubmit(e) }}
-              onInvalid={(e) => { handleInvalid(e) }}
               onInput={() => { handleInput() }}
+              noValidate
             >
               <div className="form-group">
                 <label htmlFor="name">Ім'я *</label>
@@ -200,7 +275,7 @@ const FundHelp = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <TextField
                   fullWidth
                   required
@@ -222,6 +297,10 @@ const FundHelp = () => {
                   placeholder="Введіть ваш номер телефону"
                   className={`form-group-input ${errors.phone ? 'error' : ''}`}
                   error={errors.phone}
+                  onChange={(e) => {
+                    if (e.target.value.length < 4) e.target.value = '+380';
+                    e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+                  }}
                 />
               </div>
 
@@ -275,7 +354,7 @@ const FundHelp = () => {
             <h3>Залиште заявку</h3>
             <form
               onSubmit={(e) => { handleSubmit(e) }}
-              onInvalid={(e) => { handleInvalid(e) }}
+              noValidate
               onInput={() => { handleInput() }}
             >
               <div className="form-group">
@@ -285,9 +364,8 @@ const FundHelp = () => {
                   required
                   name="name"
                   variant="outlined"
-                  error={errors.name}
                   placeholder="Введіть ваше ім'я"
-                  className={`form-group-input ${errors.name ? 'error' : ''}`}
+                  className={`form-group-input ${errors.name || errors.first_name ? 'error' : ''}`}
                 />
               </div>
 
@@ -298,20 +376,18 @@ const FundHelp = () => {
                   required
                   name="surname"
                   variant="outlined"
-                  error={errors.surname}
                   placeholder="Введіть ваше призвіще"
-                  className={`form-group-input ${errors.surname ? 'error' : ''}`}
+                  className={`form-group-input ${errors.surname || errors.last_name ? 'error' : ''}`}
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <TextField
                   fullWidth
                   required
                   name="email"
                   type="email"
-                  error={errors.email}
                   placeholder="Введіть ваш Email"
                   className={`form-group-input ${errors.email ? 'error' : ''}`}
                 />
@@ -324,9 +400,12 @@ const FundHelp = () => {
                   required
                   name="phone"
                   type="tel"
+                  onChange={(e) => {
+                    if (e.target.value.length < 4) e.target.value = '+380';
+                    e.target.value = e.target.value.replace(/[^0-9+]/g, '');
+                  }}
                   placeholder="Введіть ваш номер телефону"
-                  className={`form-group-input ${errors.phone ? 'error' : ''}`}
-                  error={errors.phone}
+                  className={`form-group-input ${errors.phone || errors.phone_number ? 'error' : ''}`}
                 />
               </div>
 
@@ -339,14 +418,13 @@ const FundHelp = () => {
                   variant="outlined"
                   multiline
                   rows={3}
-                  error={errors.socialMedia}
                   placeholder="Введіть посилання на вашу соціальні мережі для зв'язку"
-                  className={`form-group-input ${errors.socialMedia ? 'error' : ''}`}
+                  className={`form-group-input ${errors.socialMedia || errors.social_link ? 'error' : ''}`}
                 />
               </div>
 
 
-              {(errors.name || errors.surname || errors.socialMedia || errors.email || errors.phone) && (
+              {(errors.name || errors.surname || errors.socialMedia || errors.email || errors.phone || errors.phone_number || errors.first_name || errors.last_name || errors.social_link) && (
                 <div className="form-group-error">
                   Заповніть усі обов'язкові поля
                 </div>

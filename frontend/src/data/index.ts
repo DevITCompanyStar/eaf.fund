@@ -1,128 +1,14 @@
 interface TeamMember {
-  id: number;
   name: string;
   position: string;
   image: string;
-  phone: string;
+  phone_number: string;
   email: string;
   instagram: string;
+  telegram: string;
 }
 
 export type { TeamMember };
-
-const teamData: TeamMember[] = [
-  {
-    id: 1,
-    name: 'Ніконоров Антон Сергійович',
-    position: 'Голова фонду',
-    image: '/team-img-1.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-
-  {
-    id: 2,
-    name: 'Єлизавета',
-    position: 'Волонтер',
-    image: '/team-img-2.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-
-  {
-    id: 3,
-    name: 'Фелікс',
-    position: 'Волонтер',
-    image: '/team-img-3.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-  
-  {
-    id: 4,
-    name: 'Катерина',
-    position: 'Волонтер',
-    image: '/team-img-4.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-  
-  {
-    id: 5,
-    name: 'Ярослав',
-    position: 'Волонтер',
-    image: '/team-img-5.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-
-  {
-    id: 6,
-    name: 'Юрій',
-    position: 'Волонтер',
-    image: '/team-img-6.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-  
-  {
-    id: 7,
-    name: 'Кирило',
-    position: 'Волонтер',
-    image: '/team-img-7.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-
-  {
-    id: 8,
-    name: 'Петро',
-    position: 'Волонтер',
-    image: '/team-img-8.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-  
-  {
-    id: 9,
-    name: 'Владислав',
-    position: 'Волонтер',
-    image: '/team-img-9.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-  
-  {
-    id: 10,
-    name: 'Юрій',
-    position: 'Волонтер',
-    image: '/team-img-10.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-  
-  {
-    id: 11,
-    name: 'Богдан',
-    position: 'Волонтер',
-    image: '/team-img-11.png',
-    phone: '-',
-    email: '-',
-    instagram: '-'
-  },
-]
-
-export { teamData };
 
 interface FundProgrammPurpose {
   id: number;

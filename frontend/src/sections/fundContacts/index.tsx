@@ -2,6 +2,7 @@ import { useState } from "react";
 import { getImagePath } from "../../utils/imagePath";
 import { Modal, TextField } from "@mui/material";
 import CustomButton from "../../components/ui/customButton";
+import axios from "axios";
 
 import './style.css';
 
@@ -9,28 +10,43 @@ const FundContacts = () => {
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
   const validateForm = (target: HTMLFormElement) => {
-    // const name = target.name;
-    // const email = target.email;
-    // const phone = target.phone;
-    // const message = target.message;
-
     const newErrors: { [key: string]: boolean } = { ...errors };
 
     if (target.name === 'name') newErrors.name = true;
     if (target.name === 'phone') newErrors.phone = true;
+    if (target.name === 'email') newErrors.email = true;
     if (target.name === 'message') newErrors.message = true;
 
+    const formData = new FormData(target as HTMLFormElement);
+    const phone = formData.get('phone') as string;
+    console.log('phone', phone);
+    if ((phone.includes('+') && phone.length !== 13) || (!phone.includes('+') && (phone.length !== 12 && phone.length !== 10)))
+      newErrors.phone = true;
+
     setErrors(newErrors);
+    console.log('newErrors', newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Вимкнути стандартну браузерну валідацію
+    e.stopPropagation();
 
     if (validateForm(e.target as HTMLFormElement)) {
-      setIsModalOpen(true);
+      const formData = new FormData(e.target as HTMLFormElement);
+
+      axios.post('http://185.209.20.190:8006/api/contacts/contact-messages/', {
+        first_name: formData.get('name'),
+        email: formData.get('email') || '',
+        phone_number: formData.get('phone'),
+        message: formData.get('message') || '',
+      }).then((response) => {
+        console.log('response', response);
+        setIsModalOpen(true);
+      });
     }
   };
 
@@ -85,7 +101,7 @@ const FundContacts = () => {
         <div className="fund-contacts-form-content">
           <form
             onSubmit={(e) => { handleSubmit(e) }}
-            onInvalid={(e) => { handleInvalid(e) }}
+            noValidate
             onInput={() => { handleInput() }}
           >
             <div className="form-group-row">
@@ -103,11 +119,12 @@ const FundContacts = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email *</label>
                 <TextField
                   fullWidth
                   name="email"
                   type="email"
+                  required
                   placeholder="Введіть ваш Email"
                   className="form-group-input"
                 />
@@ -123,6 +140,10 @@ const FundContacts = () => {
                   placeholder="Введіть ваш номер телефону"
                   className={`form-group-input ${errors.phone ? 'error' : ''}`}
                   error={errors.phone}
+                  onChange={(e) => {
+                    if (e.target.value.length < 4) e.target.value = '+380';
+                    e.target.value = e.target.value.replace(/[^0-9+]/g, ''); // only numbers and '+'
+                  }}
                 />
               </div>
             </div>

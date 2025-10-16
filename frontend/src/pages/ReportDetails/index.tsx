@@ -25,6 +25,53 @@ const spreadImages = (images: string[]) => {
   return {spreadedImages, numberOfRows};
 }
 
+const extractVideoId = (url: string): string => {
+  const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[7].length === 11) ? match[7] : '';
+};
+
+const VideoPlayer = ({ videoUrl }: { videoUrl: string }) => {
+  const isYouTube = videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
+  const isVimeo = videoUrl.includes('vimeo.com');
+
+  if (isYouTube) {
+    return (
+      <div className="video-wrapper">
+        <iframe
+          src={`https://www.youtube.com/embed/${extractVideoId(videoUrl)}`}
+          title="YouTube video"
+          frameBorder="0"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+
+  if (isVimeo) {
+    const vimeoId = videoUrl.split('/').pop();
+    return (
+      <div className="video-wrapper">
+        <iframe
+          src={`https://player.vimeo.com/video/${vimeoId}`}
+          title="Vimeo video"
+          frameBorder="0"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
+
+  // Для звичайних відео файлів (mp4, webm тощо)
+  return (
+    <video controls className="video-player">
+      <source src={videoUrl} type="video/mp4" />
+      <source src={videoUrl} type="video/webm" />
+      Ваш браузер не підтримує відео.
+    </video>
+  );
+};
+
 const ReportDetails = () => {
   const { id } = useParams();
   const report = reports.find((report) => report.id === parseInt(id as string));
@@ -67,7 +114,7 @@ const ReportDetails = () => {
 
         <div className="report-details-content-additional-video">
           {report?.video && (
-            <video src={getImagePath(report?.video as string)} controls />
+            <VideoPlayer videoUrl={"https://www.youtube.com/watch?v=G7h9CLow0ic&list=RDG7h9CLow0ic&start_radio=1"} />
           )}
         </div>
 
